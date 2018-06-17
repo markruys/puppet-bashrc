@@ -56,7 +56,6 @@ class bashrc(
   validate_string($grep_color_value)
   
   validate_string($bashrcd_puppet_filename)
-  validate_array($aliases)
   validate_array($users)
   validate_array($extensions)
 

@@ -11,7 +11,18 @@ alias la='ls -A'
 alias l='ls -CF'
 
 #Machine specific aliases
-<% @aliases.each do |myalias| -%>
-alias <%= myalias %>
+<% if @aliases.is_a?(Hash) -%>
+<%   @aliases.each do |name, value| -%>
+<%     if value != nil -%>
+alias <%= name%>='<%= value %>'
+<%    else -%>
+unalias <%= name%>
+<%     end -%>
+<%   end -%>
+<% end -%>
+<% if @aliases.is_a?(Array) -%>
+<%   @aliases.each do |name| -%>
+alias <%= name %>
+<%   end -%>
 <% end -%>
 
